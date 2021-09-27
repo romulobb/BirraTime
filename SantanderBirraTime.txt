@@ -1,0 +1,82 @@
+Cual es el problema?
+
+Tenemos un proveedor que nos vende cajas de 6 unidades de birra. El problema es que : Si hace entre 20 y 24 gradis, se toma una birra por persona. Si hace menos de 20 se toma 0.75 y si hace mucho calor, mas de 24, se toman 2 birras mas por persona. Y siempre preferimos que sobre y que no falte.
+
+Backlog:
+Cada historia de usuario tiene una parte front y una parte back, las dos son obligatorias y cuantas mas hagas mejor!
+
+- Como admin quiero saber cuantas cajas de birras tengo que comprar para poder aprovisionar la meetup
+- Como admin y usuario quiero conocer la temperatura del dia de la meetup pasa saber si va a hacer calor o no
+- Como admin quiero armar una meetup para poder invitar otras personas
+- como usuario quiero inscribirme en una meetup para poder asistir
+- como usuario quiero hacer un check-in en una meetup para poder avisar que estuve ahi
+
+Cuestiones tecnicas:
+
+- Usar swagger para las apis
+- Cache, retry, cicuit breaker, maturity level, I18N, reactive
+- Seguridad
+- Front Responsive/pwa
+- Test ui
+- Testing automatico
+
+Hacer un readme y aclarar que supuestos que se tomen en las apis "estaAPImevaadevolverxcosa", por favor aclararlo en el readme
+
+
+Algunas apis de clima para que uses como mas te convenga
+
+https://rapidapi.com/community/api/open-weather-map
+https://rapidapi.com/weatherbit/api/weather
+
+
+open api usr     romulobb@gmail.com
+pass santandertecnologia
+
+
+
+
+
+var unirest = require("unirest");
+
+var req = unirest("GET", "https://community-open-weather-map.p.rapidapi.com/weather");
+
+req.query({
+	"q": "London,uk",
+	"lat": "0",
+	"lon": "0",
+	"callback": "test",
+	"id": "2172797",
+	"lang": "null",
+	"units": "\"metric\" or \"imperial\"",
+	"mode": "xml, html"
+});
+
+req.headers({
+	"x-rapidapi-key": "a958cae565msh81d6cfdda83628bp1647f9jsne760a8d34217",
+	"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+	"useQueryString": true
+});
+
+
+req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+
+	console.log(res.body);
+});
+
+
+
+para probar el swagger
+http://localhost:8085/swagger-ui.html#/
+
+
+https://howtodoinjava.com/java/java-security/rest-api-security-guide/
+
+
+h2 console  http://localhost:8085/h2-console 
+
+tutorial SptingBoot + JPA
+https://mkyong.com/spring-boot/spring-boot-spring-data-jpa/
+https://www.javatpoint.com/spring-boot-starter-data-jpa
+
+
